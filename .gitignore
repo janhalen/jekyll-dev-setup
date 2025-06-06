@@ -1,0 +1,8 @@
+_site/
+.jekyll-cache/
+.sass-cache/
+.jekyll-metadata
+.bundle/
+.distrobox-home/
+.vendor/
+code-server-secret.yaml
