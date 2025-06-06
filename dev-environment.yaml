@@ -4,52 +4,50 @@
 # - A Pod running code-server, mounting the same shared storage
 # This allows code-server (VS Code in browser) and Jekyll to work on the same files.
 
+
+# Jekyll Pod
 apiVersion: v1
-kind: List
-items:
-  # --- Jekyll Pod ---
-  - apiVersion: v1
-    kind: Pod
-    metadata:
-      name: jekyll
-    spec:
-      volumes:
-        - name: jekyll-shared
-          hostPath:
-            path: /home/jmk/Repositories/jekyll-dev-setup  # <-- local project path
-            type: Directory
-      containers:
-        - name: jekyll
-          image: ghcr.io/bretfisher/jekyll-serve:latest
-          command: ["jekyll", "serve", "--host", "0.0.0.0"]  # Serve on all interfaces
-          ports:
-            - containerPort: 4000  # Expose Jekyll on port 4000
-          volumeMounts:
-            - mountPath: /srv/jekyll  # Jekyll's working directory
-              name: jekyll-shared
-  ---
-  # --- code-server Pod ---
-  - apiVersion: v1
-    kind: Pod
-    metadata:
-      name: code-server
-    spec:
-      volumes:
-        - name: jekyll-shared
-          hostPath:
-            path: /home/jmk/Repositories/jekyll-dev-setup
-            type: Directory
-      containers:
-        - name: code-server
-          image: codercom/code-server:latest
-          envFrom:
-            - secretRef:
-                name: code-server-password
-          ports:
-            - containerPort: 8080  # Expose code-server on port 8080
-          volumeMounts:
-            - mountPath: /home/coder/project  # code-server's project directory
-              name: jekyll-shared
+kind: Pod
+metadata:
+  name: jekyll
+spec:
+  volumes:
+    - name: jekyll-shared
+      hostPath:
+        path: /home/jmk/Repositories/jekyll-dev-setup
+        type: Directory
+  containers:
+    - name: jekyll
+      image: ghcr.io/bretfisher/jekyll-serve:latest
+      command: ["jekyll", "serve", "--host", "0.0.0.0"]
+      ports:
+        - containerPort: 4000
+      volumeMounts:
+        - mountPath: /srv/jekyll
+          name: jekyll-shared
+---
+# code-server Pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: code-server
+spec:
+  volumes:
+    - name: jekyll-shared
+      hostPath:
+        path: /home/jmk/Repositories/jekyll-dev-setup
+        type: Directory
+  containers:
+    - name: code-server
+      image: codercom/code-server:latest
+      envFrom:
+        - secretRef:
+            name: code-server-password
+      ports:
+        - containerPort: 8080
+      volumeMounts:
+        - mountPath: /home/coder/project
+          name: jekyll-shared
 
 # Notes:
 # - Both pods mount the same hostPath, so changes in code-server are reflected in Jekyll and vice versa.
