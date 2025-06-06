@@ -16,12 +16,14 @@ spec:
       hostPath:
         path: /home/jmk/Repositories/jekyll-dev-setup
         type: Directory
+        selinuxRelabel: "shared"
   containers:
     - name: jekyll
       image: ghcr.io/bretfisher/jekyll-serve:latest
       command: ["jekyll", "serve", "--host", "0.0.0.0"]
       ports:
         - containerPort: 4000
+          hostPort: 4000
       volumeMounts:
         - mountPath: /srv/jekyll
           name: jekyll-shared
@@ -37,6 +39,7 @@ spec:
       hostPath:
         path: /home/jmk/Repositories/jekyll-dev-setup
         type: Directory
+        selinuxRelabel: "shared"
   containers:
     - name: code-server
       image: codercom/code-server:latest
@@ -45,6 +48,7 @@ spec:
             name: code-server-password
       ports:
         - containerPort: 8080
+          hostPort: 8080
       volumeMounts:
         - mountPath: /home/coder/project
           name: jekyll-shared
