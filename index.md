@@ -1,8 +1,12 @@
 ---
 title: Home
-nav_order: 1
 ---
 
-# Welcome
+# 🚀
+ Welcome
 
-This is your minimal Jekyll site using the just-the-docs theme!
+This is a test page for Sisse!
+
+```mermaid
+A-->B
+```

@@ -1,9 +1,6 @@
 title: "Just the Docs Minimal"
 description: "A minimal Jekyll site using just-the-docs"
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: ""
 url: "http://localhost:4000"
-
 theme: "just-the-docs"
-
-# (Optional) Enable search
 search_enabled: true
