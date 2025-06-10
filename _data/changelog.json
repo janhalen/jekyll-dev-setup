@@ -1,0 +1,42 @@
+[
+  {
+    "url": "https://api.github.com/repos/example/repo/releases/3",
+    "assets_url": "https://api.github.com/repos/example/repo/releases/3/assets",
+    "upload_url": "https://uploads.github.com/repos/example/repo/releases/3/assets{?name,label}",
+    "html_url": "https://github.com/example/repo/releases/tag/v1.0.0",
+    "id": 3,
+    "tag_name": "v1.0.0",
+    "target_commitish": "main",
+    "name": "v1.0.0",
+    "draft": false,
+    "prerelease": false,
+    "created_at": "2025-06-10T10:00:00Z",
+    "published_at": "2025-06-10T10:30:00Z",
+    "body": "### Initial release\n- Added just-the-docs theme\n- Setup changelog page",
+    "author": {
+      "login": "octocat",
+      "id": 1,
+      "html_url": "https://github.com/octocat"
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/example/repo/releases/2",
+    "assets_url": "https://api.github.com/repos/example/repo/releases/2/assets",
+    "upload_url": "https://uploads.github.com/repos/example/repo/releases/2/assets{?name,label}",
+    "html_url": "https://github.com/example/repo/releases/tag/v0.9.0",
+    "id": 2,
+    "tag_name": "v0.9.0",
+    "target_commitish": "main",
+    "name": "v0.9.0",
+    "draft": false,
+    "prerelease": true,
+    "created_at": "2025-06-01T09:00:00Z",
+    "published_at": "2025-06-01T09:30:00Z",
+    "body": "### Beta release\n- Basic site structure\n- First markdown page",
+    "author": {
+      "login": "octocat",
+      "id": 1,
+      "html_url": "https://github.com/octocat"
+    }
+  }
+]

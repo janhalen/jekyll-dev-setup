@@ -4,3 +4,5 @@ baseurl: ""
 url: "http://localhost:4000"
 theme: "just-the-docs"
 search_enabled: true
+mermaid: 
+  version: "11.6.0"

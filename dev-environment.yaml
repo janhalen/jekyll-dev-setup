@@ -20,38 +20,38 @@ spec:
   containers:
     - name: jekyll
       image: ghcr.io/bretfisher/jekyll-serve:latest
-      command: ["jekyll", "serve", "--host", "0.0.0.0"]
+      command: ["/bin/sh", "-c", "bundle install && exec jekyll serve --host 0.0.0.0"]
       ports:
         - containerPort: 4000
           hostPort: 4000
       volumeMounts:
         - mountPath: /site
           name: jekyll-shared
----
+# ---
 # code-server Pod
-apiVersion: v1
-kind: Pod
-metadata:
-  name: code-server
-spec:
-  volumes:
-    - name: jekyll-shared
-      hostPath:
-        path: /home/jmk/Repositories/jekyll-dev-setup
-        type: Directory
-        selinuxRelabel: "shared"
-  containers:
-    - name: code-server
-      image: codercom/code-server:latest
-      envFrom:
-        - secretRef:
-            name: code-server-password
-      ports:
-        - containerPort: 8080
-          hostPort: 8080
-      volumeMounts:
-        - mountPath: /home/coder/project
-          name: jekyll-shared
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#  name: code-server
+# spec:
+#  volumes:
+#    - name: jekyll-shared
+#      hostPath:
+#        path: /home/jmk/Repositories/jekyll-dev-setup
+#        type: Directory
+#        selinuxRelabel: "shared"
+#  containers:
+#    - name: code-server
+#      image: codercom/code-server:latest
+#      envFrom:
+#        - secretRef:
+#            name: code-server-password
+#      ports:
+#        - containerPort: 8080
+#          hostPort: 8080
+#      volumeMounts:
+#        - mountPath: /home/coder/project
+#          name: jekyll-shared
 
 # Notes:
 # - Both pods mount the same hostPath, so changes in code-server are reflected in Jekyll and vice versa.
