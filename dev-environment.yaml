@@ -1,9 +1,6 @@
 # This manifest defines:
-# - A PersistentVolumeClaim for shared storage between containers
+# - A PersistentVolumeClaim for shared storage between containers and vscode (or another IDE)
 # - A Pod running Jekyll, mounting the shared storage
-# - A Pod running code-server, mounting the same shared storage
-# This allows code-server (VS Code in browser) and Jekyll to work on the same files.
-
 
 # Jekyll Pod
 apiVersion: v1
@@ -27,34 +24,3 @@ spec:
       volumeMounts:
         - mountPath: /site
           name: jekyll-shared
-# ---
-# code-server Pod
-# apiVersion: v1
-# kind: Pod
-# metadata:
-#  name: code-server
-# spec:
-#  volumes:
-#    - name: jekyll-shared
-#      hostPath:
-#        path: /home/jmk/Repositories/jekyll-dev-setup
-#        type: Directory
-#        selinuxRelabel: "shared"
-#  containers:
-#    - name: code-server
-#      image: codercom/code-server:latest
-#      envFrom:
-#        - secretRef:
-#            name: code-server-password
-#      ports:
-#        - containerPort: 8080
-#          hostPort: 8080
-#      volumeMounts:
-#        - mountPath: /home/coder/project
-#          name: jekyll-shared
-
-# Notes:
-# - Both pods mount the same hostPath, so changes in code-server are reflected in Jekyll and vice versa.
-# - This setup is for local development. 
-#   In production, use a PersistentVolumeClaim (PVC) for shared storage,
-#   and ensure to follow security best practices, such as using secrets for passwords.
