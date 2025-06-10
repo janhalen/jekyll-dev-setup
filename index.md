@@ -5,7 +5,8 @@ last_modified_date: {{ page.last_modified_at }}
 ---
 
 # 🚀
- Welcome
+
+Welcome
 
 ## Mermaid diagram 🔽
 ```mermaid
@@ -14,6 +15,3 @@ flowchart
 A --> B
 
 ```
-
-> ![NOTE]
->

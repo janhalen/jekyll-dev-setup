@@ -1,5 +1,5 @@
 # This manifest defines:
-# - A PersistentVolumeClaim for shared storage between containers and vscode (or another IDE)
+# - A PersistentVolumeClaim for shared storage between containers and vscode (or another IDE icoul)
 # - A Pod running Jekyll, mounting the shared storage
 
 # Jekyll Pod
@@ -17,7 +17,6 @@ spec:
   containers:
     - name: jekyll
       image: ghcr.io/bretfisher/jekyll-serve:latest
-      command: ["/bin/sh", "-c", "bundle install && exec jekyll serve --host 0.0.0.0"]
       ports:
         - containerPort: 4000
           hostPort: 4000

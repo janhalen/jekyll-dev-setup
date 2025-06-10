@@ -34,7 +34,4 @@ callouts:
     color: yellow
   warning:
     title: "Warning"
-    color: orange
-  caution:
-    title: "Caution"
     color: red
