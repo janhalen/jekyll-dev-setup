@@ -1,15 +1,19 @@
 ---
 title: Home
 layout: default
+last_modified_date: {{ page.last_modified_at }}
 ---
 
 # 🚀
  Welcome
 
-This is a test page for Sisse!
-
-Auto-build?
-
+## Mermaid diagram 🔽
 ```mermaid
-A-->B
+flowchart
+
+A --> B
+
 ```
+
+> ![NOTE]
+>
