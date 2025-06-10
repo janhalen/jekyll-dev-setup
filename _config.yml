@@ -1,4 +1,5 @@
-title: "Just the Docs Minimal"
+title: "OS² Demo Docs"
+logo: "https://www.os2.eu/web/image/website/1/logo/OS2%20%E2%80%93%20Offentligt%20digitaliseringsf%C3%A6llesskab"
 description: "A minimal Jekyll site using just-the-docs"
 baseurl: ""
 url: "http://localhost:4000"

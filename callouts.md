@@ -14,6 +14,3 @@ This is important.
 
 {: .warning }
 This is a warning.
-
-{: .caution }
-This is a caution.

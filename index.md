@@ -1,17 +1,24 @@
 ---
 title: Home
 layout: default
-last_modified_date: {{ page.last_modified_at }}
 ---
 
-# 🚀
+# 🚀 OS² Demo Docs
 
-Welcome
+Coming soon
+{: .label .label-yellow }
 
-## Mermaid diagram 🔽
+{: .tip }
+Just a demo site
+
+<button type="button" name="button" class="btn">Button element</button>
+
+
+
 ```mermaid
 flowchart
 
 A --> B
 
 ```
+
