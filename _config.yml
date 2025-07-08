@@ -6,10 +6,6 @@ url: "http://localhost:4000"
 theme: "just-the-docs"
 search_enabled: true
 
-just_the_docs:
-  custom_css:
-   - "assets/css/custom.css"
-
 mermaid: 
   version: "11.6.0"
 
